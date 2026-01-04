@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Strike - Game Arcade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">🚀</div>
+                <h1 class="logo-text">Astro Strike</h1>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-btn active" id="homeBtn">
+                    <span class="btn-icon">🏠</span>
+                    <span class="btn-text">Home</span>
+                </button>
+                <button class="nav-btn" id="gameBtn">
+                    <span class="btn-icon">🎮</span>
+                    <span class="btn-text">Main Game</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="badge">✨ Game Arcade Terbaru</div>
+                <h2 class="hero-title">
+                    <span class="title-gradient-1">Astro</span><br>
+                    <span class="title-gradient-2">Strike</span>
+                </h2>
+                <p class="hero-description">
+                    Petualangan epik di luar angkasa menanti! Kendalikan pesawat ruang angkasa dan lindungi galaksi dari serangan meteor yang mengancam.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="playNowBtn">
+                        <span>✨</span> Main Sekarang
+                    </button>
+                    <button class="btn-secondary" id="learnMoreBtn">Pelajari Lebih Lanjut</button>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon icon-cyan">🚀</div>
+                    <h3>Kontrol Mudah</h3>
+                    <p>Gunakan tombol panah atau WASD untuk menggerakkan pesawat dan spasi untuk menembak laser.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-yellow">⚡</div>
+                    <h3>Aksi Cepat</h3>
+                    <p>Hindari meteor yang datang dari segala arah dan raih skor setinggi mungkin!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-purple">⭐</div>
+                    <h3>Tema Luar Angkasa</h3>
+                    <p>Nikmati visual luar angkasa yang memukau dengan bintang-bintang berkelap-kelip.</p>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="about-section">
+                <h3 class="section-title">Tentang Game</h3>
+                <p class="about-text">
+                    Astro Strike adalah minigame arcade klasik yang menguji refleks dan keterampilan Anda. 
+                    Dalam game ini, Anda berperan sebagai pilot pesawat luar angkasa yang bertugas melindungi 
+                    jalur navigasi dari serangan meteor yang berbahaya.
+                </p>
+                <p class="about-text">
+                    Setiap meteor yang berhasil Anda hancurkan akan menambah skor Anda. Namun berhati-hatilah, 
+                    jika pesawat Anda tertabrak meteor, permainan akan berakhir! Tantang diri Anda untuk 
+                    mencapai skor tertinggi dan menjadi pembela galaksi terbaik!
+                </p>
+                
+                <div class="controls-box">
+                    <h4 class="controls-title">🎮 Cara Bermain</h4>
+                    <div class="control-item">
+                        <span class="control-icon">⌨️</span>
+                        <span>Gunakan tombol <strong>↑ ↓ ← →</strong> atau <strong>W A S D</strong> untuk menggerakkan pesawat</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="control-icon">🎯</span>
+                        <span>Tekan <strong>SPASI</strong> untuk menembakkan laser</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="control-icon">💥</span>
+                        <span>Hancurkan meteor sebelum mereka menghantam pesawat Anda</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="control-icon">🔥</span>
+                        <span><strong class="fire-text">Meteor Api</strong> tidak bisa ditembak, harus dihindari!</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="control-icon">🏆</span>
+                        <span>Kumpulkan skor sebanyak mungkin sebelum Game Over</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="stars" class="stars"></div>
+
+    <script>
+        // Navigation untuk home page
+        const homeBtn = document.getElementById('homeBtn');
+        const gameBtn = document.getElementById('gameBtn');
+        const playNowBtn = document.getElementById('playNowBtn');
+        const learnMoreBtn = document.getElementById('learnMoreBtn');
+
+        gameBtn.addEventListener('click', () => {
+            window.location.href = 'game.html';
+        });
+
+        playNowBtn.addEventListener('click', () => {
+            window.location.href = 'game.html';
+        });
+
+        learnMoreBtn.addEventListener('click', () => {
+            window.location.href = 'game.html';
+        });
+
+        // Create stars for background
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 80; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = `${Math.random() * 2.5 + 0.5}px`;
+                star.style.height = star.style.width;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDuration = `${Math.random() * 4 + 2}s`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
+</body>
+</html>

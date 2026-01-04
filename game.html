@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Strike - Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">🚀</div>
+                <h1 class="logo-text">Astro Strike</h1>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-btn" id="homeBtn">
+                    <span class="btn-icon">🏠</span>
+                    <span class="btn-text">Home</span>
+                </button>
+                <button class="nav-btn active" id="gameBtn">
+                    <span class="btn-icon">🎮</span>
+                    <span class="btn-text">Main Game</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Game Page -->
+    <div class="container">
+        <div class="game-container">
+            <div class="game-area">
+                <h2 class="game-title">Astro Strike Game</h2>
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="score-display">Skor: <span id="scoreValue">0</span></div>
+                        <button class="btn-start" id="startBtn">✨ Mulai Game</button>
+                    </div>
+                    <div class="game-preview">
+                        <div class="preview-content">
+                            <div class="preview-icon">🎮</div>
+                            <p class="preview-title">Klik "Mulai Game"</p>
+                            <p class="preview-text">Game akan ditampilkan dalam mode fullscreen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="sidebar-card card-yellow">
+                    <h3 class="sidebar-title">🏆 Skor Tertinggi</h3>
+                    <p class="high-score" id="highScore">0</p>
+                </div>
+                
+                <div class="sidebar-card card-cyan">
+                    <h3 class="sidebar-title">💡 Tips Bermain</h3>
+                    <ul class="tips-list">
+                        <li>Terus bergerak untuk menghindari meteor</li>
+                        <li>Bidik dengan tepat untuk menghemat amunisi</li>
+                        <li>Fokus pada meteor yang paling dekat</li>
+                        <li><strong class="fire-text">Meteor Api 🔥</strong> tidak bisa ditembak!</li>
+                        <li><strong class="fire-text">Mars 🔴</strong> tidak bisa ditembak!</li>
+                        <li>Jangan terlalu ke pinggir</li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-card card-purple">
+                    <h3 class="sidebar-title">🎮 Kontrol</h3>
+                    <div class="control-row">
+                        <span>Gerak</span>
+                        <strong>↑ ↓ ← → / WASD</strong>
+                    </div>
+                    <div class="control-row">
+                        <span>Tembak</span>
+                        <strong>SPASI</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Game -->
+    <div id="fullscreenGame" class="fullscreen-game">
+        <div class="fullscreen-header">
+            <button class="fullscreen-btn" id="exitBtn">✕ Keluar</button>
+            <div class="fullscreen-score">Skor: <span id="fullscreenScore">0</span></div>
+            <button class="fullscreen-btn" id="restartBtn">🔄 Restart</button>
+        </div>
+        <div class="canvas-container">
+            <canvas id="gameCanvas"></canvas>
+            
+            <!-- Mobile Controls -->
+            <div id="mobileControls" class="mobile-controls">
+                <div class="dpad">
+                    <button class="dpad-btn dpad-up" data-dir="up">↑</button>
+                    <button class="dpad-btn dpad-down" data-dir="down">↓</button>
+                    <button class="dpad-btn dpad-left" data-dir="left">←</button>
+                    <button class="dpad-btn dpad-right" data-dir="right">→</button>
+                    <div class="dpad-center"></div>
+                </div>
+                <button class="shoot-btn" id="shootBtn">🔥</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="stars" class="stars"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
